@@ -4,9 +4,9 @@ import numpy as np
 import pandas as pd
 import os
 import sys
-from sklearn.model_selection import  cross_val_predict
+from sklearn.model_selection import cross_val_predict
 
-sys.path.append(os.getcwd()) 
+sys.path.append(os.getcwd())
 
 def evaluate_model(model, train_features, train_target, test_features, test_target):
     
@@ -26,7 +26,7 @@ def evaluate_model(model, train_features, train_target, test_features, test_targ
             data = test_features
             true_target = test_target
     
-        pred_proba = cross_val_predict(model, data, true_target, cv=5, method='predict_proba')[:, 1]
+        pred_proba = cross_val_predict(model, data, true_target, cv=5, method='predict_proba')
         
         
         fpr, tpr, roc_thresholds = metrics.roc_curve(true_target, pred_proba)
